@@ -4,11 +4,13 @@ select * from order_details;
 select * from orders;
 select * from pizza_types;
 select * from pizzas;
-# Retrieve the total number of orders placed.
+
+# 1: Retrieve the total number of orders placed.
 select count(order_id) from orders;
 
 select  COUNT(name), category FROM pizza_types GROUP BY category;
 
+# 3: Calculate the total revenue generated from pizza sales.
 SELECT ROUND(SUM((pizzas.price) * (order_details.quantity)),3) AS total_revenue FROM pizzas JOIN order_details ON pizzas.pizza_id = order_details.pizza_id;
 
 select pizza_types.name,pizzas.price from pizzas join pizza_types on  pizza_types.pizza_type_id=pizzas.pizza_type_id   order by pizzas.price desc limit 1;
