@@ -31,6 +31,7 @@ SELECT pizza_types.category,SUM(order_details.quantity) AS category_count FROM p
 pizzas ON pizza_types.pizza_type_id = pizzas.pizza_type_id JOIN order_details ON order_details.pizza_id = pizzas.pizza_id
 GROUP BY pizza_types.category ORDER BY category_count asc; 
 
+# 8: Determine the distribution of orders by hour of the day.
 select time  from orders;
 SELECT SUM(od.quantity) AS total_quantity,HOUR(o.time) AS time_hour FROM order_details od JOIN
 orders o ON o.order_id = od.order_id GROUP BY time_hour;
