@@ -14,6 +14,7 @@ select  COUNT(name), category FROM pizza_types GROUP BY category;
 # 3: Calculate the total revenue generated from pizza sales.
 SELECT ROUND(SUM((pizzas.price) * (order_details.quantity)),3) AS total_revenue FROM pizzas JOIN order_details ON pizzas.pizza_id = order_details.pizza_id;
 
+# 4: Identify the highest-priced pizza.
 select pizza_types.name,pizzas.price from pizzas join pizza_types on  pizza_types.pizza_type_id=pizzas.pizza_type_id   order by pizzas.price desc limit 1;
 
 SELECT COUNT(order_details.quantity) AS total_quantity, pizzas.size FROM order_details JOIN
