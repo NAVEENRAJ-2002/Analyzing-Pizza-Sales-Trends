@@ -8,6 +8,7 @@ select * from pizzas;
 # 1: Retrieve the total number of orders placed.
 select count(order_id) from orders;
 
+# 2: Join relevant tables to find the category-wise distribution of pizzas.
 select  COUNT(name), category FROM pizza_types GROUP BY category;
 
 # 3: Calculate the total revenue generated from pizza sales.
