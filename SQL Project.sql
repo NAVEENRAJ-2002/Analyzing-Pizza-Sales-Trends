@@ -26,7 +26,7 @@ SELECT COUNT(order_details.quantity) AS quantity_of_pizza,pizza_types.name FROM 
 pizzas ON pizza_types.pizza_type_id = pizzas.pizza_type_id JOIN order_details ON order_details.pizza_id = pizzas.pizza_id
 GROUP BY pizza_types.name ORDER BY quantity_of_pizza DESC LIMIT 5;
 
-
+# 7: Join the necessary tables to find the total quantity of each pizza category ordered.
 SELECT pizza_types.category,SUM(order_details.quantity) AS category_count FROM pizza_types JOIN
 pizzas ON pizza_types.pizza_type_id = pizzas.pizza_type_id JOIN order_details ON order_details.pizza_id = pizzas.pizza_id
 GROUP BY pizza_types.category ORDER BY category_count asc; 
