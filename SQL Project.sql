@@ -40,11 +40,8 @@ orders o ON o.order_id = od.order_id GROUP BY time_hour;
 SELECT ROUND(AVG(order_quantity), 0) AS order_perday FROM (SELECT o.date AS dates, SUM(od.quantity) AS order_quantity
 FROM order_details od JOIN orders o ON o.order_id = od.order_id GROUP BY dates) AS order_quantity;
 
+# 10: Determine the top 3 most ordered pizza types based on revenue.
 SELECT pt.name AS pizza_name,ROUND(SUM(o.quantity * p.price), 2) AS total_revenue FROM
 pizza_types pt JOIN pizzas p ON pt.pizza_type_id = p.pizza_type_id JOIN
 order_details o ON o.pizza_id = p.pizza_id GROUP BY name ORDER BY total_revenue DESC LIMIT 3;
  
-select max(price) as Highest_price_pizza from pizzas;
-select size,count(size) from pizzas group by size limit 1 ;
-select count(pizza_type_id),pizza_type_id from pizzas group by pizza_type_id;
-select p1.ingredients,p2.pizza_type_id,count(p2.pizza_type_id) from pizza_types p1 join pizzas p2  on p1.pizza_type_id=p2.pizza_type-id group by p2.pizza_type_id ;
