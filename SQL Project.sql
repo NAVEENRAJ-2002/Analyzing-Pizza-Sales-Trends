@@ -4,6 +4,7 @@ select * from order_details;
 select * from orders;
 select * from pizza_types;
 select * from pizzas;
+# Retrieve the total number of orders placed.
 select count(order_id) from orders;
 
 select  COUNT(name), category FROM pizza_types GROUP BY category;
