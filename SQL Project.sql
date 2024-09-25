@@ -21,6 +21,7 @@ select pizza_types.name,pizzas.price from pizzas join pizza_types on  pizza_type
 SELECT COUNT(order_details.quantity) AS total_quantity, pizzas.size FROM order_details JOIN
 pizzas ON order_details.pizza_id = pizzas.pizza_id GROUP BY pizzas.size ORDER BY total_quantity DESC LIMIT 1;
 
+# 6: List the top 5 most ordered pizza types along with their quantities.
 SELECT COUNT(order_details.quantity) AS quantity_of_pizza,pizza_types.name FROM pizza_types JOIN
 pizzas ON pizza_types.pizza_type_id = pizzas.pizza_type_id JOIN order_details ON order_details.pizza_id = pizzas.pizza_id
 GROUP BY pizza_types.name ORDER BY quantity_of_pizza DESC LIMIT 5;
