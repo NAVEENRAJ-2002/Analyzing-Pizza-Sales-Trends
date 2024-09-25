@@ -36,6 +36,7 @@ select time  from orders;
 SELECT SUM(od.quantity) AS total_quantity,HOUR(o.time) AS time_hour FROM order_details od JOIN
 orders o ON o.order_id = od.order_id GROUP BY time_hour;
 
+# 9: Group the orders by date and calculate the average number of pizzas ordered per day.
 SELECT ROUND(AVG(order_quantity), 0) AS order_perday FROM (SELECT o.date AS dates, SUM(od.quantity) AS order_quantity
 FROM order_details od JOIN orders o ON o.order_id = od.order_id GROUP BY dates) AS order_quantity;
 
