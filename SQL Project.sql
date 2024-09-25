@@ -17,6 +17,7 @@ SELECT ROUND(SUM((pizzas.price) * (order_details.quantity)),3) AS total_revenue 
 # 4: Identify the highest-priced pizza.
 select pizza_types.name,pizzas.price from pizzas join pizza_types on  pizza_types.pizza_type_id=pizzas.pizza_type_id   order by pizzas.price desc limit 1;
 
+# 5: Identify the most common pizza size ordered.
 SELECT COUNT(order_details.quantity) AS total_quantity, pizzas.size FROM order_details JOIN
 pizzas ON order_details.pizza_id = pizzas.pizza_id GROUP BY pizzas.size ORDER BY total_quantity DESC LIMIT 1;
 
